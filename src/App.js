@@ -1,9 +1,10 @@
 import React from 'react'
+import QuoteBox from './components/QuoteBox'
 
 const App = () => {
    return (
-      <div>
-         
+      <div className="content">
+         <QuoteBox />
       </div>
    )
 }
