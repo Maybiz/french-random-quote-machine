@@ -1,14 +1,19 @@
-import React, {useState} from 'react'
+import React from 'react'
 import QuoteBox from './components/QuoteBox'
+import {connect} from 'react-redux'
+import addColor from './actions/action'
 
-const App = () => {
+const mapStateToProps = (state) => {
+   return {
+     color: state
+   }
+ }
 
-   const [color, setColor] = useState('')
 
-   const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
+const App = (props) => {
 
    const style = {
-      background: randomColor
+      background: props.color.reducers
    }
 
    return (
@@ -18,4 +23,4 @@ const App = () => {
    )
 }
 
-export default App
+export default connect(mapStateToProps, null)(App)

@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
+import {connect} from 'react-redux'
+import addColor from '../actions/action'
 
-const QuoteBox = () => {
+const mapStateToProps = (state) => {
+   return {
+     color: state
+   }
+ }
+
+ const mapDispatchToProps = (dispatch) => {
+   return {
+     addNewColor: (color) => {
+       dispatch(addColor(color))
+     }
+   }
+ }
+
+const QuoteBox = (props) => {
 	const quotes = [
 		{
 			text:
@@ -19,16 +35,16 @@ const QuoteBox = () => {
 		},
 	];
 
-	const displayQuote = "";
-
-	const [index, setIndex] = useState(0);
+   const [index, setIndex] = useState(0);
+   const [randomColor, setRandomColor] = useState('')
 
 	const getRandom = () => {
-		setIndex(Math.floor(Math.random() * quotes.length));
+      setIndex(Math.floor(Math.random() * quotes.length));
+      props.addNewColor(`#${Math.floor(Math.random()*16777215).toString(16)}`)
 	};
 
 	useEffect(() => {
-		getRandom();
+      getRandom();
 	}, []);
 
 	return (
@@ -39,11 +55,11 @@ const QuoteBox = () => {
          </div>
 			
          <div className="bottom-row">
-            <button id="new-quote" onClick={getRandom}>Nouvelle citation</button>
+            <button id="new-quote" onClick={getRandom} style={{backgroundColor: props.color.reducers}}>Nouvelle citation</button>
             <a id="tweet-quote"></a>
          </div>        
 		</div>
 	);
 };
 
-export default QuoteBox;
+export default connect(mapStateToProps, mapDispatchToProps)(QuoteBox)
