@@ -15,12 +15,13 @@ body {
 
 #quote-box {
    width: 500px;
-   min-height: 250px;
+   min-height: 220px;
    background: #ffffff;
    margin: auto;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   padding: 40px;
 }
 
 .top-row {
@@ -35,12 +36,25 @@ body {
   #author {
     font-size: 1em;
     text-align: right;
+    margin-top: 10px;
   }
 }
 
 .bottom-row {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+
+  #new-quote {
+    height: 40px;
+    border: none;
+    outline-style: none;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 0.9em;
+    cursor: pointer;
+    padding: 0 10px;
+  }
 }
 
 
