@@ -11,13 +11,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addBackgroundColor: (color) => {
+		addNewColor: (color) => {
 			dispatch(addColor(color));
 		},
 	};
 };
 
-const QuoteBox = ({ color, addBackgroundColor }) => {
+const QuoteBox = ({ color, addNewColor }) => {
 	const quotes = [{
 		text: "C’est en vain qu’on cherche au loin le bonheur quand on oublie de le cultiver soi-même.",
 		author: "Jean-Jacques Rousseau",
@@ -92,37 +92,45 @@ const QuoteBox = ({ color, addBackgroundColor }) => {
 	},
 	];
 
-	const [index, setIndex] = useState(0);
+   const [index, setIndex] = useState(0);
+   
+   const [classText, setClassText] = useState('')
 
 	const getRandom = () => {
-		setIndex(Math.floor(Math.random() * quotes.length));
-		addBackgroundColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-	};
+      setClassText('text--hide')
+      setTimeout(() => {
+         setIndex(Math.floor(Math.random() * quotes.length));
+      }, 500);
+      addNewColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
+      setTimeout(() => {
+         setClassText('text--display')
+      }, 500);
+   };
 
 	useEffect(() => {
 		getRandom();
-	}, []);
+   }, []);
 
 	return (
-		<div id="quote-box" style={{color: color.reducers}}>
+		<div id="quote-box" style={{color: color.reducers, transition: 'background 0.5s linear'}}>
 			<div className="top-row">
-				<div id="text">
+				<div id="text" className={classText}>
 					<FaQuoteLeft style={{ marginRight: "10px" }} />
 					{quotes[index].text}
 				</div>
-				<div id="author">{quotes[index].author}</div>
+				<div id="author">- {quotes[index].author}</div>
 			</div>
 
 			<div className="bottom-row">
 				<div class="socials">
 					<a id="fb-quote" href="#">
-						<FaFacebookSquare size="40px" color={color.reducers} />
+						<FaFacebookSquare size="40px" color={color.reducers} style={{transition: 'color 0.5s linear'}} />
 					</a>
 					<a id="tweet-quote" href="https://twitter.com/intent/tweet">
-						<FaTwitterSquare size="40px" color={color.reducers} />
+						<FaTwitterSquare size="40px" color={color.reducers} style={{transition: 'color 0.5s linear'}} />
 					</a>
 				</div>
-				<button id="new-quote" style={{ background: color.reducers }} onClick={getRandom}>
+				<button id="new-quote" style={{ background: color.reducers, transition: 'background 0.5s linear' }} onClick={getRandom}>
 	 				Nouvelle citation
 				</button>
 			</div>

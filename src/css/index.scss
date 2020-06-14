@@ -33,6 +33,16 @@ body {
     text-align: center;
   }
 
+  .text--hide {
+     opacity: 0;
+     transition: opacity 0.5s;
+  }
+
+  .text--display {
+     opacity: 100;
+     transition: opacity 0.5s;
+  }
+
   #author {
     font-size: 1em;
     text-align: right;

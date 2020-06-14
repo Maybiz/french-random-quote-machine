@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 const App = ({color}) => {
 
    return (
-      <div className="content" style={{background: color.reducers}}>
+      <div className="content" style={{background: color.reducers, transition: 'background 0.5s linear'}}>
          <QuoteBox />
       </div>
    )
