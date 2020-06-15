@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import configureStore from "./store";
 
 import './css/index.scss';
+import 'animate.css/animate.css'
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

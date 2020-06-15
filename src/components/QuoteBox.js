@@ -122,7 +122,8 @@ const QuoteBox = ({ color, addNewColor }) => {
    }
 
    useEffect(() => {
-      getRandom()
+		addNewColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`)
+		setClassText('animate__animated animate__zoomIn')
    }, [])
 
    return (
