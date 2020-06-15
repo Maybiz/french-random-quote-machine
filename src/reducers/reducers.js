@@ -1,10 +1,10 @@
-const colorReducer = (state = "", action) => {
+const colorReducer = (state = '', action) => {
    switch (action.type) {
-      case "ADD":
-         return action.color;
+      case 'ADD':
+         return action.color
       default:
-         return state;
+         return state
    }
-};
+}
 
-export default colorReducer;
+export default colorReducer

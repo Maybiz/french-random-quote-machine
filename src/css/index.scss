@@ -1,10 +1,9 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+   margin: 0;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+      'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
 }
 
 .content {
@@ -25,47 +24,44 @@ body {
 }
 
 .top-row {
-  margin: 0 auto;
+   margin: 0 auto;
 
-  #text {
-    font-size: 1.75em;
-    font-weight: 500;
-    text-align: center;
-  }
+   #text {
+      font-size: 1.75em;
+      font-weight: 500;
+      text-align: center;
+   }
 
-  .text--hide {
-     opacity: 0;
-     transition: opacity 0.5s;
-  }
+   .text--hide {
+      opacity: 0;
+      transition: opacity 0.5s;
+   }
 
-  .text--display {
-     opacity: 100;
-     transition: opacity 0.5s;
-  }
+   .text--display {
+      opacity: 100;
+      transition: opacity 0.5s;
+   }
 
-  #author {
-    font-size: 1em;
-    text-align: right;
-    margin-top: 10px;
-  }
+   #author {
+      font-size: 1em;
+      text-align: right;
+      margin-top: 10px;
+   }
 }
 
 .bottom-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+   display: flex;
+   justify-content: space-between;
+   margin-top: 20px;
 
-  #new-quote {
-    height: 40px;
-    border: none;
-    outline-style: none;
-    border-radius: 3px;
-    color: #ffffff;
-    font-size: 0.9em;
-    cursor: pointer;
-    padding: 0 10px;
-  }
+   #new-quote {
+      height: 40px;
+      border: none;
+      outline-style: none;
+      border-radius: 3px;
+      color: #ffffff;
+      font-size: 0.9em;
+      cursor: pointer;
+      padding: 0 10px;
+   }
 }
-
-
-
