@@ -104,26 +104,84 @@ const QuoteBox = ({ color, addNewColor }) => {
             'Faites comme l’arbre, changez vos feuilles et gardez vos racines. Changez vos idées et gardez vos principes.',
          author: 'Proverbe tibétain',
       },
+      {
+         text: 'La vie ne consiste pas à avoir de bonnes cartes dans ses mains, mais à bien jouer celles que nous avons.',
+         author: 'Josh Billings'
+      },
+      {
+         text: 'Je ne perds jamais. Soit je gagne, soit j’apprends.',
+         author: 'Nelson Mandela'
+      },
+      {
+         text: 'Vous devez accepter tout ce que la vie met sur votre chemin. La seule chose importante est que vous y répondiez avec courage et avec le meilleur que vous ayez à donner.',
+         author: 'Eleanor Roosevelt'
+      },
+      {
+         text: 'Concourir à rendre des êtres plus heureux, c’est mériter de l’être soi-même.',
+         author: 'Jean-Jacques Rousseau'
+      },
+      {
+         text: 'Nous ne saurons jamais tout le bien qu’un simple sourire est capable de faire. ',
+         author: 'Mère Teresa'
+      },
+      {
+         text: 'On n’a jamais perdu sa journée quand on a contribué pour sa part à faire pénétrer dans une âme un peu de gaieté et de lumière.',
+         author: 'Émile de Girardin'
+      },
+      {
+         text: 'L’esprit s’enrichit de ce qu’on lui donne, et le cœur, de ce qu’il donne. ',
+         author: 'Victor Hugo'
+      },
+      {
+         text: 'Personne ne peut sincèrement aider autrui sans s’aider soi-même : c’est l’une des plus belles compensations de la vie.',
+         author: 'Ralph Waldo Emerson'
+      },
+      {
+         text: 'Les deux jours les plus importants de votre vie sont le jour vous où êtes nés et le jour que vous découvrez pourquoi. ',
+         author: 'Mark Twain'
+      },
+      {
+         text: 'N’essaie pas d’être un homme de succès, essaie plutôt de devenir un homme de valeur.',
+         author: 'Albert Einstein'
+      },
+      {
+         text: 'Prenez le risque de requestionner les fondements mêmes sur lesquels votre existence repose. ',
+         author: 'Adrien Lawrence Beaulieu'
+      },
+      {
+         text: 'Chaque homme doit inventer son chemin.',
+         author: 'Jean-Paul Sartre'
+      }
    ]
 
    const [index, setIndex] = useState(0)
 
    const [classText, setClassText] = useState('')
 
-   const getRandom = () => {
+   const getRandomIndex = () => Math.floor(Math.random() * quotes.length)
+
+   const getRandomHslColor = () => {
+      const h = Math.floor(Math.random() * 360),
+            s = Math.floor(Math.random() * 100) + '%',
+            l = Math.floor(Math.random() * 60) + '%'   //between 0 and 60% to get dark color
+            
+      return `hsl(${h},${s},${l})`
+   }
+
+   const setRandomQuote = () => {
       setClassText('text--hide')
       setTimeout(() => {
-         setIndex(Math.floor(Math.random() * quotes.length))
+         setIndex(getRandomIndex())
       }, 500)
-      addNewColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`)
+      addNewColor(getRandomHslColor())
       setTimeout(() => {
          setClassText('text--display')
       }, 500)
    }
 
    useEffect(() => {
-      setIndex(Math.floor(Math.random() * quotes.length))
-		addNewColor(`#${Math.floor(Math.random() * 16777215).toString(16)}`)
+      setIndex(getRandomIndex())
+		addNewColor(getRandomHslColor())
 		setClassText('animate__animated animate__zoomIn')
    }, [])
 
@@ -157,7 +215,7 @@ const QuoteBox = ({ color, addNewColor }) => {
             <button
                id='new-quote'
                style={{ background: color.reducers, transition: 'background 0.5s linear' }}
-               onClick={getRandom}
+               onClick={setRandomQuote}
             >
                Nouvelle citation
             </button>
